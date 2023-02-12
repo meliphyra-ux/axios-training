@@ -1,0 +1,6 @@
+@use './index.scss';
+body {
+  background-color: index.$bg-color;
+  color: index.$main-color;
+  font-family: sans-serif;
+}
