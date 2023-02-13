@@ -49,18 +49,20 @@ export const getPostHandler = () => {
   };
 };
 
-export const createPost = async () => {
+export const createPost = async (title: string) => {
+  const userId = Math.floor(Math.random() * 4096);
+  const id = Math.floor(Math.random() * 4096);
   const response = await axios({
     method: 'post',
     url: 'https://jsonplaceholder.typicode.com/posts',
     data: {
-      userId: 1,
-      title: 'foo',
-      body: 'bar',
+      userId,
+      id,
+      title,
     },
     headers: {
       'Content-Type': 'application/json; charset=UTF-8',
     },
   });
-  console.log(response);
+  return response.data as PostType;
 };

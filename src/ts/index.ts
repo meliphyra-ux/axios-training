@@ -11,7 +11,7 @@ const handleNewPost = debounce(async () => {
   postsContainer?.appendChild(createNewPost(post));
 }, 1000);
 
-const createNewPost = (post: PostType) => {
+export const createNewPost = (post: PostType) => {
   const newPost = document.createElement('div');
   Object.values(post).forEach((value) => {
     const newPTag = document.createElement('p');
@@ -37,3 +37,16 @@ window.addEventListener('load', () => {
     });
   }
 });
+
+
+window.addEventListener('beforeunload', () =>{
+  button?.removeEventListener('click', () => {
+    button.innerHTML = 'Wait for 1 second...';
+    button.setAttribute('disabled', 'true');
+    setTimeout(() => {
+      button.innerHTML = 'Load post';
+      button.removeAttribute('disabled');
+    }, 1000);
+    handleNewPost();
+  })
+})

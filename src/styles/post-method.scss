@@ -4,3 +4,13 @@ body {
   color: index.$main-color;
   font-family: sans-serif;
 }
+#form{
+  input{
+    outline: 0;
+    color: index.$main-color;
+    background-color: transparent;
+    border: 2px solid index.$main-color;
+    font-size: 0.75rem;
+    padding: 10px 0px;
+  }
+}
