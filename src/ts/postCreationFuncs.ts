@@ -66,3 +66,16 @@ export const createPost = async (title: string) => {
   });
   return response.data as PostType;
 };
+
+export const createNewPost = (post: PostType) => {
+  const newPost = document.createElement('div');
+  Object.values(post).forEach((value) => {
+    const newPTag = document.createElement('p');
+    const newTextNode = document.createTextNode(`${value}`);
+    newPTag.append(newTextNode);
+    newPost.appendChild(newPTag);
+  });
+  newPost.classList.add('post');
+
+  return newPost;
+};
